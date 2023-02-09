@@ -25,12 +25,7 @@ function SettingsPage(): JSX.Element {
   const { store, dispatch } = useStore();
   const { toast } = useToast();
   const router = useRouter();
-  const [, , removeCookies] = useCookies();
   const [staff, setStaff] = useState<StaffType[]>([]);
-  const [companyImage, setCompanyImage] = useState<File>();
-  const [initialCompanyImage, setInitialCompanyImage] = useState<File>();
-  const [imageSaved, setImageSaved] = useState(false);
-  const [companyName, setCompanyName] = useState(store.company?.name || "");
   const [editCompanyPopupActive, setEditCompanyPopupActive] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -88,40 +83,10 @@ function SettingsPage(): JSX.Element {
   }, [store.company]);
 
   /**
-   * Get portal link
-   * @returns
-   */
-  const handleStipePortalUrl = async () => {
-    if (store.accessToken && store.company && store.company._id) {
-      const link = await companies.stripe.getPortalUrl(
-        store.accessToken,
-        store.company._id
-      );
-      if (link && link.status === 200) {
-        window.location.href = link.data.url;
-
-        return;
-      }
-
-      alert("Something went wrong");
-    }
-  };
-
-  /**
    * Initial load
    */
   useEffect(() => {
     void handleGetStaff();
-
-    /** Send pageView */
-    if (store.accessToken && store.company && store.company._id) {
-      void StatApi.pageVisit(
-        store.accessToken,
-        store.company._id,
-        "Company::Settings",
-        "/settings"
-      );
-    }
   }, [store.company]);
 
   return (
@@ -375,7 +340,6 @@ function SettingsPage(): JSX.Element {
               <button
                 id="settings-payment-change"
                 type="button"
-                onClick={handleStipePortalUrl}
                 className="text-teal-500 text-base float-right"
               >
                 Change
