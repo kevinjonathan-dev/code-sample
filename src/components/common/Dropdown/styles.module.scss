@@ -1,0 +1,21 @@
+@import 'styles';
+
+.dropdown {
+  padding: 8px;
+  border-radius: 0 0 4px 4px;
+  right: 8px;
+
+  .title {
+    margin-bottom: 12px;
+    font-size: 11px;
+    text-indent: 14px;
+    color: #b6b6b6;
+  }
+
+  .menu-item {
+    &:hover {
+      background: #f7f7f7;
+      color: $dark-blue-primary;
+    }
+  }
+}

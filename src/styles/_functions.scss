@@ -1,0 +1,33 @@
+@use 'sass:math';
+/*
+  Change $base values according to your design's height and width.
+  In any device sizes, it will retain proportion, achieveing a
+  pixel-perfect result like your design :)
+
+  USAGE:
+  import and put the sizes in the design as argument (negative works too)
+
+  @import 'styles';
+
+  width: vw(300) //for mobile
+  font-size: vw_d(36) //for desktop
+*/
+
+// Mobile
+
+@function vw($val, $base: 640) {
+  @return math.div($val, $base) * 100 + vw;
+}
+@function vh($val, $base: 1080) {
+  @return math.div($val, $base) * 100 + vh;
+}
+
+// Desktop
+
+@function vw_d($val, $base: 1920) {
+  @return math.div($val, $base) * 100 + vw;
+}
+
+@function vh_d($val, $base: 1080) {
+  @return math.div($val, $base) * 100 + vh;
+}

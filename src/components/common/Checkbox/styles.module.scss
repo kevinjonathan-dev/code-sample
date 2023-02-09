@@ -1,0 +1,45 @@
+@import 'styles';
+
+.checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+
+  input {
+    display: none;
+  }
+  .box {
+    width: 16px;
+    height: 16px;
+    border: solid 1px #b6b6b6;
+    background: white;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+
+    &:hover {
+      box-shadow: 0 0 0 2px #19486326;
+    }
+
+    &.checked {
+      border: solid 1px #19486326;
+      &:hover {
+        box-shadow: 0 0 0 2px #19486326;
+      }
+    }
+
+    &.required {
+      border: 1px solid #f16060;
+    }
+
+    &.disabled {
+      background: transparent;
+      border: solid 1px #b6b6b6;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+}

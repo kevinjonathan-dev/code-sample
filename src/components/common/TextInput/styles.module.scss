@@ -1,0 +1,132 @@
+@import 'styles';
+
+.text-input {
+  .icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+  }
+
+  &.icon-left {
+    input,
+    textarea {
+      padding-left: 44px;
+    }
+
+    .icon {
+      left: 16px;
+      width: 15px;
+
+      path,
+      circle {
+        stroke: #969696;
+      }
+    }
+  }
+
+  &.icon-right {
+    .icon {
+      width: 18px;
+      right: 10px;
+    }
+
+    &.error {
+      .icon {
+        circle {
+          stroke: #f16060;
+        }
+        path {
+          fill: #f16060;
+        }
+      }
+    }
+    &.valid {
+      .icon {
+        path {
+          fill: #62c167;
+        }
+      }
+    }
+  }
+
+  label {
+  }
+
+  .input-wrapper {
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  input,
+  textarea {
+    border-radius: 4px;
+    padding: 11px 14px;
+    font-size: 16px;
+    border: solid 1px #969696;
+
+    &:focus {
+      outline-color: #0eb2a5;
+      box-shadow: 0px 0px 5px rgba(14, 178, 165, 0.5);
+    }
+  }
+
+  .help-text {
+    font-size: 10px;
+    padding-left: 6px;
+    margin: 0;
+    color: #969696;
+  }
+
+  &.empty {
+    input,
+    textarea {
+      border: solid 1px #b6b6b6;
+    }
+    .icon {
+      path,
+      circle {
+        stroke: #b6b6b6;
+      }
+    }
+    .help-text {
+      color: #b6b6b6;
+    }
+  }
+
+  &.error {
+    input,
+    textarea {
+      border: solid 1px #f16060;
+    }
+    .help-text {
+      color: #f16060;
+    }
+  }
+  &.valid {
+    input,
+    textarea {
+      border: solid 1px #62c167;
+    }
+    .help-text {
+      color: #62c167;
+    }
+  }
+
+  &.disabled {
+    label {
+      color: #b6b6b6;
+    }
+    input,
+    textarea {
+      border: solid 1px #b6b6b6;
+      color: #b6b6b6;
+      background: #f7f7f7;
+
+      &::placeholder {
+        color: #b6b6b6;
+      }
+    }
+  }
+}

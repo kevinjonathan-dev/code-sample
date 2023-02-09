@@ -1,0 +1,20 @@
+.image-upload {
+  .overlay {
+    .edit-icon {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &:hover {
+      background: #00000066;
+
+      .edit-icon {
+        visibility: visible;
+        opacity: 1;
+        background: #e6e6e6;
+        height: 28px;
+        width: 28px;
+      }
+    }
+  }
+}

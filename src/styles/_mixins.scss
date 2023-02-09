@@ -1,0 +1,49 @@
+$media-mobile-max: 767;
+$media-tablet-min: 768;
+$media-tablet-max: 1024;
+$media-desktop-min: $media-tablet-max + 1;
+$media-desktop-hd-min: 1920;
+$media-mobile: '(max-width: #{$media-mobile-max}px)';
+$media-mobile-landscape: '(max-width: #{$media-mobile-max}px) and (orientation: landscape)';
+$media-mobile-portrait: '(max-width: #{$media-mobile-max}px) and (orientation: portrait)';
+
+$media-tablet: '(min-width: #{$media-tablet-min}px) and (max-width: #{$media-tablet-max}px)';
+$media-tablet-landscape: '(min-width: #{$media-tablet-min}px) and (max-width: #{$media-tablet-max}px) and (orientation: landscape)';
+$media-tablet-portrait: '(min-width: #{$media-tablet-min}px) and (max-width: #{$media-tablet-max}px) and (orientation: portrait)';
+
+$media-desktop: '(min-width: #{$media-desktop-min}px)';
+$media-desktop-hd: '(min-width: #{$media-desktop-hd-min}px)';
+
+$media-non-mobile: '(min-width: #{$media-mobile-max}px)';
+$media-non-desktop: '(max-width: #{$media-tablet-max}px)';
+
+@mixin screen($size) {
+  $mediaQueries: (
+    'mobile': $media-mobile,
+    'mobile-portrait': $media-mobile-portrait,
+    'mobile-landscape': $media-mobile-landscape,
+    'tablet': $media-tablet,
+    'tablet-portrait': $media-tablet-portrait,
+    'tablet-landscape': $media-tablet-landscape,
+    'desktop': $media-desktop,
+    'desktop-hd': $media-desktop-hd,
+    'non-mobile': $media-non-mobile,
+    'non-desktop': $media-non-desktop,
+  );
+
+  // Use predefined media query
+  @each $key, $value in $mediaQueries {
+    @if $key == $size {
+      @media only screen and #{$value} {
+        @content;
+      }
+    }
+  }
+
+  // Use custom media query
+  @if map-has-key($mediaQueries, $size) != true {
+    @media only screen and #{$size} {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import 'styles';
+
+.tag-input {
+  .label {
+    margin-left: 6px;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 0.6px;
+    line-height: 12px;
+    color: #4c4c4c;
+    padding-left: 0;
+
+    margin-bottom: 6px;
+  }
+  .tag {
+    margin: 3px;
+    cursor: pointer;
+
+    color: #4c4c4c;
+
+    height: 26px;
+  }
+
+  .input-wrapper {
+    padding: 14px 14px;
+    flex-wrap: wrap;
+    max-width: 492px;
+    max-height: 238px;
+    overflow: auto;
+
+    .input {
+      margin: 3px;
+    }
+  }
+}
